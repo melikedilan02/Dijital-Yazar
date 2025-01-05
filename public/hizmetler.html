@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Hizmetler</title>
+</head>
+<style>
+    body{
+        background-image: url('./icons/abcdfg.PNG') ;
+        background-repeat: repeat; /* Görüntünün tekrar etmesini sağlar */
+        background-size: 600px 600px;
+    }
+    .card-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Kartlar arasında boşluk */
+}   
+
+.hizmetButonum  {
+    display: inline-block;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    text-transform: uppercase;
+    background-color:#d8cab8;
+    border-radius: 50px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+}
+
+.hizmetButonum:hover {
+    background-color: #d8cab8;
+    border-color: lavenderblush; 
+    color: black;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/*.hizmetButonum .arrow-link {
+    width: 12px;
+    height: 12px;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transition: all 0.3s ease;
+} 
+
+.hizmetButonum:hover .arrow-link {
+    right: 10px;
+}*/
+
+
+.card {
+    position: relative;
+    width: 30%; /* Kartların genişliği */
+    padding: 20px;
+    background-color: #f4f4f4; /* Varsayılan arka plan rengi */
+    border-radius: 10px; /* Kart köşeleri yuvarlatılmış */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    transition: background-color 0.3s ease; /* Hover geçiş efekti */
+    text-align: center;
+    border-color: lavenderblush;
+}
+
+.card:hover {
+    background-color: #86AB89; 
+    cursor: pointer;/* Hover durumunda arka plan rengi kırmızı */
+    color: white;
+    
+}
+
+.card figure img {
+    margin-bottom: 15px;
+}
+
+.card h2 {
+    font-size: 18px;
+    color: #333;
+}
+.card:hover h2 {
+    font-size: 18px;
+    color: white;
+}
+.card figure img {
+    margin-bottom: 15px;
+    transition: filter 0.3s ease; /* Hover durumunda yumuşak geçiş sağlar */
+}
+
+.card:hover img {
+    filter: brightness(0) invert(1); /* Resmi beyaz yapar */
+}
+/*LOGO KODU BAŞLANGIÇ*/
+.navbar-brand {
+        font-family: 'Lora', serif;
+        font-size: 2.2rem;
+        color: #3C2A1A;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+    }
+.navbar img {
+            height: 50px; /* Logo boyutu */
+            width: auto; /* Orantılı genişlik */
+            margin-left: 10px; /* Logo ile yazı arasındaki boşluk */
+            border-radius: 5px; /* Hafif köşeler */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+        }
+.navbar-nav{
+    font-size: large;
+}
+/*LOGO KODU bitiş*/
+
+
+</style>
+<body>
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <a class="navbar-brand"  href="#">YazArt</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/">Ana Sayfa <span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item-active">
+            <a class="nav-link" href=""><b>Hizmetler</b></a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="uyelik">Üyelik</a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact">İletişim</a>
+                        </li>
+        </ul>
+        
+    </div>
+    </nav>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card-container">
+                    <div class="card">
+                        <div class="bg-services"></div>
+                        <figure>
+                            <img src="https://ajans360.com/dacegug/2022/05/hizmet-kurumsal-icon.svg" width="53" height="50" alt="Web Tasarımı" title="Web Tasarımı">
+                            <h2>Dijital Yazar</h2>
+                        </figure>
+                        <div class="link">
+                            <a class="hizmetButonum"  href="dijitalyazar">
+                                BAŞLAT<div class="arrow-link"></div>
+                                </a><!--BUTON TASARIMI YAPILACAK SADECE-->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="bg-services"></div>
+                        <figure>
+                            <img src="icons/seo.png" width="53" height="50" alt="Web Tasarımı" title="Web Tasarımı">
+                            <h2>SEO analizi ve Optimizasyonu</h2>
+                        </figure>
+                        <div class="link">
+                            <a class="hizmetButonum"  href="seoanalizi">
+                                BAŞLAT<div class="arrow-link"></div>
+                                </a><!--BUTON TASARIMI YAPILACAK SADECE-->
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="bg-services"></div>
+                        <figure>
+                            <img src="icons/scenario.png" width="53" height="50" alt="" title="">
+                            <h2>Senaryo ve Diyalog Yazma Araçları</h2>
+                        </figure>
+                        <div class="link">
+                            <a class="hizmetButonum"  href="senaryo">
+                                BAŞLAT<div class="arrow-link"></div>
+                                </a><!--BUTON TASARIMI YAPILACAK SADECE-->
+                        </div>
+                    </div>
+                    
+                    
+                </div>    
+                <!--İKİNCİ SATIR-->
+                <div  class="card-container mt-5">
+                    <div class="card">
+                        <div class="bg-services"></div>
+                        <figure>
+                            <img src="icons/file (1).png" width="53" height="50" alt="" title="">
+                            <h2>İçerik Dönüştürücü</h2>
+                        </figure>
+                        <div class="link">
+                            <a class="hizmetButonum"  href="icerikdonusturucu"> 
+                                BAŞLAT<div class="arrow-link"></div>
+                                </a><!--BUTON TASARIMI YAPILACAK SADECE-->
+                        </div>
+                    </div> 
+                    
+                    <div class="card">
+                        <div class="bg-services"></div>
+                        <figure>
+                            
+                            <img src="icons/online-news.png" width="53" height="50" alt="" title="">
+                            <h2>Blog ve Sosyal Medya Entegrasyonu</h2>
+                        </figure>
+                        <div class="link">
+                            <a class="hizmetButonum"  href="blog">
+                                BAŞLAT<div class="arrow-link"></div>
+                                </a><!--BUTON TASARIMI YAPILACAK SADECE-->
+                        </div>
+                    </div>
+                        <div class="card">
+                            <div class="bg-services"></div>
+                            <figure>
+                                <img src="icons/monitor.png" width="53" height="50" alt="" title="">
+                                <h2>Okuma Modu ve Geri Bildirim</h2>
+                            </figure>
+                            <div class="link">
+                                <a class="hizmetButonum"  href="okuma">
+                                    BAŞLAT<div class="arrow-link"></div>
+                                    </a><!--BUTON TASARIMI YAPILACAK SADECE-->
+                            </div>
+                        </div>
+                       
+                <!--ÜÇÜNCÜ SATIR-->
+                
+                    <div class="card">
+                        <div class="bg-services"></div>
+                        <figure>
+                            <img src="icons/monitorReport.png" width="53" height="50" alt="" title="">
+                            <h2>Kapsamlı Raporlama ve Analitik Araçlar</h2>
+                        </figure>
+                        <div class="link">
+                            <a class="hizmetButonum"  href="kapsamliraporlama">
+                                BAŞLAT<div class="arrow-link"></div>
+                                </a><!--BUTON TASARIMI YAPILACAK SADECE-->
+                        </div>
+                    </div>
+</body>
+</html>

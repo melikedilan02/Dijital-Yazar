@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/uyelik.css">
+    <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
+    <title>Üyelik</title>
+</head>
+<style>
+     .contact-section {
+        padding: 50px 0;
+        background-color: #859bd9;
+        text-align: center;
+    }
+    
+    .contact-title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+    }
+    
+    .contact-info {
+        display: flex;
+        justify-content: center;
+        gap: 50px;
+    }
+    
+    .contact-info div {
+        background-color: #333;
+        padding: 20px 30px;
+        border-radius: 10px;
+        color: #fff;
+        transition: background-color 0.3s ease;
+    }
+    
+    .contact-info div:hover {
+        background-color: #d8cab8;
+    }
+    
+    .contact-info h4 {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+    
+    .contact-info p {
+        font-size: 18px;
+        margin: 0;
+    }
+    
+    .contact-info a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .contact-info a:hover {
+        text-decoration: underline;
+    }
+    .contact-form-section {
+    padding: 50px 0;
+    
+    
+    background-size: cover;
+}
+body{
+    background-color: #677D6A;
+}
+.contact-title {
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #859bd9;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 71, 19, 0.2);
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #86AB89;;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #4d7152;
+    box-shadow: 0 5px 15px rgba(255, 71, 19, 0.3);
+}
+.navbar-brand {
+        font-family: 'Lora', serif;
+        font-size: 2.2rem;
+        color: #3C2A1A;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+    }
+    .navbar img {
+            height: 50px; /* Logo boyutu */
+            width: auto; /* Orantılı genişlik */
+            margin-left: 10px; /* Logo ile yazı arasındaki boşluk */
+            border-radius: 5px; /* Hafif köşeler */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+        }
+.navbar-nav{
+    font-size: large;
+}
+</style>
+<body>
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <!-- <a class="navbar-brand"  href="#">YazArt</a>     -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item-active">
+                    <a class="nav-link" href="/">Ana Sayfa<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="hizmetler">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uyelik"><b>Üyelik</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">İletişim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!--İÇERİK-->
+    <div class="container mt-5">
+        <div class="row"> 
+            <div class="col-12">
+                <div class="promos">  
+                    <div class="promo">
+                      <div class="deal">
+                        <span>Premium</span>
+                        <span>En üst düzeyde yaratıcı özgürlüğün tadını çıkarın</span>
+                      </div>
+                      <span class="price">$79</span>
+                      <ul class="features">
+                        <li>7/24 Teknik Destek</li>
+                        <li>Tüm Özelliklere Erişim</li>
+                        <li>Özel Temalar ve Tasarımlar</li> 
+                      </ul>
+                      <button class="kayitButon" onclick="scrollToForm()">Kayıt Ol</button>
+                    </div>
+                    <div class="promo scale">
+                      <div class="deal">
+                        <span>Plus</span>
+                        <span>Gelişmiş araçlarla projelerinizi bir üst seviyeye taşıyın</span>
+                      </div>
+                      <span class="price">$89</span>
+                      <ul class="features">
+                        <li>Genişletilmiş Özellik Seti</li>
+                        <li>Haftalık Güncellemeler</li>
+                        <li>Reklamsız Deneyim</li>  
+                      </ul>
+                      <button class="kayitButon" onclick="scrollToForm()">Kayıt Ol</button>
+                    </div>
+                    <div class="promo">
+                      <div class="deal">
+                        <span>Basic</span>
+                        <span>Temel ihtiyaçlarınızı karşılayacak güvenilir bir çözüm</span>
+                      </div>
+                      <span class="price">$69</span>
+                      <ul class="features">
+                        <li>Temel Özelliklere Erişim</li>
+                        <li>Aylık Güncellemeler</li>
+                        <li>Sınırlı Destek</li>
+                      </ul>
+                      <button class="kayitButon" onclick="scrollToForm()">Kayıt Ol</button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <section id="contact-form" class="contact-form-section">
+                    <div class="container">
+                        <form action="/uyelik" method="post" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Adınız:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="surname">Soyadınız:</label>
+                                <input type="text" id="surname" name="surname" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">E-posta:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Şifre:</label>
+                                <input type="password" id="password" name="password" placeholder="Şifrenizi Giriniz">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Seçilen Paket:</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <button type="submit" class="submit-btn">Üye Ol</button>
+                        </form>
+                    </div>
+                </section>
+              
+            </div>
+        </div>
+    </div>    
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script>
+        function scrollToForm() {
+            const formSection = document.getElementById('contact-form');
+            formSection.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

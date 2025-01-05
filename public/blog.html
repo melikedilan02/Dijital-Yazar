@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog ve Sosyal Medya Entegrasyonu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+    background-image: url('./icons/sosyal-medya-planlamasi.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Resim üzerine yarı saydam siyah opaklık */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Resim üzerinde gölgelik efekti */
+    z-index: -1; /* İçeriklerin önünde olmaması için z-index değeri düşük */
+}
+
+.container {
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 40px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+}
+
+h1 {
+    text-align: center;
+    color: #343a40;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+}
+
+input[type="text"],
+textarea,
+input[type="file"],
+select,
+input[type="date"] {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+}
+
+input[type="file"] {
+    padding: 3px;
+}
+
+button {
+    width: 25%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background-color:#4d5a8e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #18213b;
+}
+        .navbar img {
+            height: 50px; /* Logo boyutu */
+            width: auto; /* Orantılı genişlik */
+            margin-left: 10px; /* Logo ile yazı arasındaki boşluk */
+            border-radius: 5px; /* Hafif köşeler */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+        }
+.navbar-nav{
+    font-size: large;
+}
+.btn{
+    width:100%;
+    margin-top: 0.5rem;
+    
+}
+.preview-container {
+            width: 100%;
+            max-width: 500px; /* Genişliği sınırla */
+            height: 300px; /* Yüksekliği sınırla */
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: hidden; /* Taşan kısmı gizle */
+            position: relative; /* İçerideki elementin pozisyonunu ayarla */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa; /* Hafif arka plan rengi */
+            margin: 0 auto; /* Konteynırı ortala */
+
+        }
+        .preview-img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Görselin konteynır içinde düzgün şekilde görünmesini sağlar */
+        }
+        .back-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #d8cab8;
+        color: black;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .back-button:hover {
+        background-color: #C4A484;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .back-button img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+    }
+    
+    .back-button:hover img {
+        transform: translateX(-5px);
+    }
+    .butonback {
+            width: 70px; /* Dairenin çapı */
+            height: 70px; /* Dairenin çapı */
+            border-radius: 100%; /* Tam yuvarlak yapmak için */
+            background-color: #DFD3C3; /* Arka plan rengi */
+            color: black; /* Metin rengi */
+            border: none; /* Kenarlık kaldırıldı */
+            font-size: 16px; /* Yazı boyutu */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed; /* Sayfanın sağ alt köşesinde sabit kalması için */
+            bottom: 20px;
+            left: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Hover efekti için geçiş */
+        }
+        .butonback:hover {
+            background-color: #d6867f; 
+            color: white;/* Hover rengi */
+        }
+    </style>
+</head>
+<body> 
+    <div id="loading-spinner"></div>
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <a class="navbar-brand"  href="#">YazArt</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item-">
+            <a class="nav-link" href="/">Ana Sayfa<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="hizmetler">Hizmetler</a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="uyelik">Üyelik</a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact">İletişim</a>
+                        </li>
+        </ul>
+        
+    </div>
+    </nav>
+    <div class="container">
+        <header>
+            <h1>Sosyal Medya Yönetimi</h1>
+        </header>
+        <article> 
+            <h2></h2>
+            <p></p>
+        </article>
+        <div style="" class="social-media-buttons">
+            <button class="btn btn-primary" id="facebook-share">Facebook'ta Paylaş</button>
+            <button class="btn btn-primary" id="twitter-share">Twitter'da Paylaş</button>
+            <button class="btn btn-primary" id="linkedin-share">LinkedIn'de Paylaş</button>
+            <button class="btn btn-primary" id="instagram-share">İnstagram'da Paylaş</button>
+        </div>
+    </div>
+        <!-- Sosyal Medya Paylaşımları -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="text-center">
+                    <div class="social-media-buttons">
+                        <a href="#" title="Facebook"><i style="color: white; font-size: x-large;" class="fab fa-facebook-f"></i></a>
+                        <a href="#" title="Twitter"><i style="color: white;font-size: x-large;" class="fab fa-twitter"></i></a>
+                        <a href="#" title="Instagram"><i style="color: white;font-size: x-large;" class="fab fa-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i style="color: white;font-size: x-large;" class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <form id="post-form">
+                        <!-- Başlık Girişi -->
+                        <div class="form-group">
+                            <label for="title">Başlık:</label>
+                            <input type="text" id="title" name="title" placeholder="Post başlığı" required>
+                        </div>
+            
+                        <!-- İçerik Girişi -->
+                        <div class="form-group">
+                            <label for="content">İçerik:</label>
+                            <textarea id="content" name="content" placeholder="Post içeriğini buraya yazın..." rows="10" required></textarea>
+                        </div>
+            
+                        <!-- Görsel Ekleme -->
+                        <div class="form-group">
+                            <label for="image">Görsel Ekle:</label>
+                            <input class="text-light" type="file" id="image" name="image" accept="image/*">
+                        </div>
+                            <div class="preview-container">
+                                <img id="image-preview" class="preview-img" src="#" alt="Görsel Önizleme" style="display: none;">
+                            </div>
+            
+                        <!-- Kategori Seçimi -->
+                        <div class="form-group">
+                            <label for="category">Kategori:</label>
+                            <select id="category" name="category" required>
+                                <option value="" disabled selected>Kategori Seçin</option>
+                                <option value="technology">Teknoloji</option>
+                                <option value="lifestyle">Yaşam Tarzı</option>
+                                <option value="education">Eğitim</option>
+                                <option value="news">Haberler</option>
+                            </select>
+                        </div>
+            
+                        <!-- Yayınlama Tarihi -->
+                        <div class="form-group">
+                            <label for="publish-date">Yayınlama Tarihi:</label>
+                            <input type="date" id="publish-date" name="publish-date" required>
+                        </div>
+            
+                        <!-- Yayınlama Durumu -->
+                        <div class="form-group">
+                            <label for="status">Durum:</label>
+                            <select id="status" name="status" required>
+                                <option value="draft">Taslak</option>
+                                <option value="published">Yayınla</option>
+                            </select>
+                        </div>
+            
+                        <!-- Gönder Butonu -->
+                        <button type="submit"><b>Oluştur</b></button>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Geri Dön Butonu -->
+    <div class="back-button">
+        <button class="butonback" onclick="goBack()"><i style="font-size: x-large;" class="fa-solid fa-angles-left"></i></button>
+    </div>
+   
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        // scripts.js
+        function goBack() {
+    window.history.back();
+}   
+document.getElementById('facebook-share').addEventListener('click', function() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.querySelector('h1').innerText);
+    const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`;
+    window.open(facebookShareUrl, '_blank', 'width=600,height=400');
+});
+
+document.getElementById('twitter-share').addEventListener('click', function() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent(document.querySelector('h1').innerText);
+    const twitterShareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+    window.open(twitterShareUrl, '_blank', 'width=600,height=400');
+});
+
+document.getElementById('linkedin-share').addEventListener('click', function() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent(document.querySelector('h1').innerText);
+    const linkedinShareUrl = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${title}`;
+    window.open(linkedinShareUrl, '_blank', 'width=600,height=400');
+});
+document.getElementById('instagram-share').addEventListener('click', function() {
+    alert("Instagram, doğrudan web paylaşımını desteklemiyor. İçeriği kopyalayıp Instagram'a yapıştırabilirsiniz.");
+    // Alternatif olarak, içeriği kopyalama fonksiyonu ekleyebilirsiniz.
+});
+
+document.getElementById('image').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imagePreview = document.getElementById('image-preview');
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            } else {
+                const imagePreview = document.getElementById('image-preview');
+                imagePreview.src = '#';
+                imagePreview.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

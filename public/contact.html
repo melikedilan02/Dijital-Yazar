@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>İletişim</title>
+    <style>
+        .contact-section, .contact-form-section {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .contact-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 50px 0;
+            background-color: #859bd9;
+        }
+
+        /* Önceden tanımlı stiller */
+        .contact-title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .contact-info div {
+            background-color: #333;
+            padding: 20px 30px;
+            border-radius: 10px;
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+
+        .contact-info div:hover {
+            background-color: #859bd9;
+        }
+
+        .contact-info h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .contact-info p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-section {
+            background-image: url('https://www.transparenttextures.com/patterns/french-stucco.png');
+            background-size: cover;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+        }
+
+        .contact-form {
+            max-width: 100%;
+            margin: 0;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #859bd9;
+            background-color: #fff;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 71, 19, 0.2);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #333;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #859bd9;
+            box-shadow: 0 5px 15px rgba(255, 71, 19, 0.3);
+        }
+
+        .navbar-brand {
+            font-family: 'Lora', serif;
+            font-size: 2.2rem;
+            color: #3C2A1A;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+        }
+
+        .navbar img {
+            height: 50px;
+            width: auto;
+            margin-left: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+            font-size: large;
+        }
+    </style>
+</head>
+<body>
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <a class="navbar-brand" href="#">YazArt</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Ana Sayfa <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item-">
+                    <a class="nav-link" href="hizmetler">Hizmetler</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uyelik">Üyelik</a>
+                </li>
+                <li class="nav-item-active">
+                    <a class="nav-link" href="contact"><b>İletişim</b></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="contact-container">
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <h2 class="contact-title">İletişim</h2>
+                <div class="contact-info">
+                    <div class="email">
+                        <h4>E-posta:</h4>
+                        <p><a href="mailto:ornek@domain.com">ornek@domain.com</a></p>
+                    </div>
+                    <div class="phone">
+                        <h4>Telefon:</h4>
+                        <p><a href="tel:+905555555555">+90 555 555 55 55</a></p>
+                    </div>
+                    <div class="instagram">
+                        <h4>Instagram:</h4>
+                        <p><a href="https://instagram.com/ornekprofil" target="_blank">@ornekprofil</a></p>
+                    </div>
+                </div>
+            </div>
+            <img src="https://cdn.pixabay.com/photo/2022/03/01/08/11/call-center-7040784_640.png" alt="">
+        </section>
+
+        <section id="contact-form" class="contact-form-section">
+            <div class="container">
+                <h2 class="contact-title">Bize Ulaşın</h2>
+                <form action="/send-email" method="post" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Adınız:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-posta:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Konu:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Gönder</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+.promos {
+    width: 800px;
+    margin: 0 auto;
+    margin-top: 50px;
+  }
+  .promo {
+    width: 250px;
+    background: #DFD3C3; 
+    color: black;
+    float: left;
+    padding-bottom:0.5rem;
+  }
+  .deal {
+    padding: 10px 0 0 0;
+  }
+  .deal span {
+    display: block;
+    text-align: center;
+  }
+  .deal span:first-of-type {
+    font-size: 23px;  
+  }
+  .deal span:last-of-type {
+    font-size: 13px;
+  }
+  .promo .price {
+    display: block;
+    width: 250px;  
+    background: #86AB89;
+    margin: 15px 0 10px 0;
+    text-align: center;
+    font-size: 23px;
+    padding: 17px 0 17px 0;
+  }
+.kayitButon{
+    width: 100%;
+    border: none;
+    border-radius: 40px;
+    background: #86AB89;
+    color: #f9f9f9;
+    padding: 5px 25px;
+}
+.kayitButon:hover{
+
+  background: #677D6A;
+
+}
+  .scale {
+    transform: scale(1.2);
+    box-shadow: 0 0 4px 1px rgba(20, 20, 20, 0.8);
+  }
+  .scale button {
+    background: #86AB89;
+  }
+  .scale .price {
+    color: white;
+  }
+  .scale button:hover {
+    background: #677D6A;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #859bd9;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 71, 19, 0.2);
+}
+
+.submit-btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #333;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #859bd9;
+    box-shadow: 0 5px 15px rgba(255, 71, 19, 0.3);
+}

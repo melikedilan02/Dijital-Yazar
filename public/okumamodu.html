@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Okuma Modu ve Geri Bildirim</title>
+    <style>
+        :root {
+            --bg-color-light: #ffffff;
+            --text-color-light: #333333;
+            --bg-color-dark: #343a40;
+            --text-color-dark: #f1f1f1;
+            --night-light-color: rgba(255, 165, 0, 0.5); /* Example orange tint */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://cdn.pixabay.com/photo/2021/01/21/16/49/books-5937823_640.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color-light);
+            background-color: var(--bg-color-light);
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+
+        .card-container {
+            background-color: white;
+            color: var(--text-color-light);
+            width: 100%;
+            max-width: 595px; /* Approx. A4 width in pixels */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            height: calc(100vh - 40px); /* Adjusting for padding or any other top/bottom margins */
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        body.dark-mode {
+            background-image: none;
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        body.dark-mode .card-container {
+            background-color: #333;
+            color: var(--text-color-dark);
+            width: 100%;
+            max-width: 595px; /* Approx. A4 width in pixels */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            height: calc(100vh - 40px); /* Adjusting for padding or any other top/bottom margins */
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120vh;
+            flex-direction: column;
+            gap: 20px;  
+        }
+
+        .custom-button {
+            background-color: #4d5a8e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background-color: #18213b;
+        }
+
+        .feedback {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4d5a8e;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .feedback:hover {
+            background-color: #18213b;
+            transform: translateY(-3px);
+        }
+
+        .navbar-brand {
+            font-family: 'Lora', serif;
+            font-size: 2.2rem;
+            color: #3C2A1A;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+        }
+
+        .navbar img {
+            height: 50px;
+            width: auto;
+            margin-left: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-nav {
+            font-size: large;
+        }
+
+        body.dark-mode .form-control {
+            background-color: var(--bg-color-dark);
+            color: var(--text-color-dark);
+        }
+
+        .night-light-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--night-light-color);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        body.night-light .night-light-overlay {
+            opacity: 1;
+        }
+
+        .night-light-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+        .back-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #d8cab8;
+        color: black;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .back-button:hover {
+        background-color: #C4A484;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .back-button img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+    }
+    
+    .back-button:hover img {
+        transform: translateX(-5px);
+    }
+    .butonback {
+            width: 70px; /* Dairenin çapı */
+            height: 70px; /* Dairenin çapı */
+            border-radius: 100%; /* Tam yuvarlak yapmak için */
+            background-color: #DFD3C3; /* Arka plan rengi */
+            color: black; /* Metin rengi */
+            border: none; /* Kenarlık kaldırıldı */
+            font-size: 16px; /* Yazı boyutu */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed; /* Sayfanın sağ alt köşesinde sabit kalması için */
+            bottom: 20px;
+            left: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Hover efekti için geçiş */
+        }
+        .butonback:hover {
+            background-color: #4e3321; 
+            color: white;/* Hover rengi */
+        }
+    </style>
+</head>
+<body>
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <a class="navbar-brand" href="#">YazArt</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Ana Sayfa <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item-active">
+                    <a class="nav-link" href=""><b>Hizmetler</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="uyelik">Üyelik</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact">İletişim</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <input type="file" id="pdf-input" class="form-control" accept="application/pdf">
+        <button id="aktar-btn" class="custom-button">Aktar</button>
+        <div id="pdf-display" class="card-container">
+            PDF içeriği burada gösterilecek...
+        </div>
+        <button id="zoom-in-btn" class="custom-button">Yakınlaştır</button>
+        <button id="zoom-out-btn" class="custom-button">Uzaklaştır</button>
+        <button id="toggle-mode-btn" class="custom-button">Karanlık Mod</button>
+        <button id="toggle-night-light-btn" class="custom-button">Gece Işığı Modu</button>
+        <input type="range" id="night-light-slider" class="night-light-slider" min="0" max="100" value="50">
+    </div>
+    <div class="night-light-overlay"></div>
+
+ <!-- Geri Dön Butonu -->
+ <div class="back-button">
+    <button class="butonback" onclick="goBack()"><i style="font-size: x-large;" class="fa-solid fa-angles-left"></i></button>
+</div>
+    <script>
+         // scripts.js
+         function goBack() {
+    window.history.back();
+}   
+        document.getElementById('aktar-btn').addEventListener('click', function() {
+            const input = document.getElementById('pdf-input');
+            const display = document.getElementById('pdf-display');
+
+            if (input.files.length > 0) {
+                const file = input.files[0];
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    const embed = document.createElement('embed');
+                    embed.src = e.target.result;
+                    embed.type = 'application/pdf';
+                    embed.width = '100%';
+                    embed.height = '100%';
+
+                    display.innerHTML = '';
+                    display.appendChild(embed);
+                };
+
+                reader.readAsDataURL(file);
+            } else {
+                display.innerHTML = 'Lütfen bir PDF dosyası seçin.';
+            }
+        });
+        document.getElementById('toggle-mode-btn').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        
+        // Optional: Save the mode preference in localStorage
+        if (document.body.classList.contains('dark-mode')) {
+            localStorage.setItem('theme', 'dark');
+        } else {
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Check and apply the saved theme on page load
+    window.addEventListener('load', function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    });
+    document.getElementById('toggle-night-light-btn').addEventListener('click', function() {
+        document.body.classList.toggle('night-light');
+    });
+
+    document.getElementById('night-light-slider').addEventListener('input', function(e) {
+        const value = e.target.value;
+        const overlay = document.querySelector('.night-light-overlay');
+        overlay.style.backgroundColor = `rgba(255, 165, 0, ${value / 100})`;
+    });
+
+    window.addEventListener('load', function() {
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    });
+    let scale = 1; // Başlangıç ölçeği
+
+document.getElementById('zoom-in-btn').addEventListener('click', function() {
+    scale += 0.1; // Ölçeği arttır
+    setPdfScale(scale);
+});
+
+document.getElementById('zoom-out-btn').addEventListener('click', function() {
+    if (scale > 0.5) {
+        scale -= 0.1; // Ölçeği küçült
+        setPdfScale(scale);
+    }
+});
+
+function setPdfScale(scale) {
+    const embed = document.querySelector('#pdf-display embed');
+    if (embed) {
+        embed.style.transform = `scale(${scale})`;
+        embed.style.transformOrigin = 'top left';
+    }
+}
+    </script>
+</body>
+</html>

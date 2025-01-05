@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senaryo ve Diyalog Aracı</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+         body {
+        background-image: url('./icons/senaryo..jpg');
+        background-color: #F8F1E4;
+        font-family: 'Arial', sans-serif;
+        background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Resim üzerine yarı saydam siyah opaklık */
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); /* Resim üzerinde gölgelik efekti */
+    z-index: -1; /* İçeriklerin önünde olmaması için z-index değeri düşük */
+
+    }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            border-radius: 5px;
+            padding: 10px;
+            border: 1px solid #CCC;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #CCC;
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #134B70;
+        }
+
+        .preview-area {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #EFEFEF;
+            border-radius: 8px;
+            height: 200px;
+            overflow-y: scroll;
+            white-space: pre-wrap;
+        }
+        .navbar img {
+            height: 50px; /* Logo boyutu */
+            width: auto; /* Orantılı genişlik */
+            margin-left: 10px; /* Logo ile yazı arasındaki boşluk */
+            border-radius: 5px; /* Hafif köşeler */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+        }
+.navbar-nav{
+    font-size: large;
+}
+.back-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #d8cab8;
+        color: black;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .back-button:hover {
+        background-color: #C4A484;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .back-button img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+    }
+    
+    .back-button:hover img {
+        transform: translateX(-5px);
+    }
+    .butonback {
+            width: 70px; /* Dairenin çapı */
+            height: 70px; /* Dairenin çapı */
+            border-radius: 100%; /* Tam yuvarlak yapmak için */
+            background-color: #F8F1E4; /* Arka plan rengi */
+            color: black; /* Metin rengi */
+            border: none; /* Kenarlık kaldırıldı */
+            font-size: 16px; /* Yazı boyutu */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed; /* Sayfanın sağ alt köşesinde sabit kalması için */
+            bottom: 20px;
+            left: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Hover efekti için geçiş */
+        }
+        .butonback:hover {
+            background-color: #18213b; /* Hover rengi */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-spinner"></div>
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <!-- <a class="navbar-brand"  href="#">YazArt</a> -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item-">
+            <a class="nav-link" href="/">Ana Sayfa<span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="hizmetler">Hizmetler</a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="uyelik">Üyelik</a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact">İletişim</a>
+                        </li>
+        </ul>
+        
+    </div>
+    </nav>
+
+    <div class="container">
+        <h1>Senaryo ve Diyalog Aracı</h1>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="scenarioTitle" class="form-label">Senaryo Başlığı:</label>
+                <input type="text" id="scenarioTitle" class="form-control" placeholder="Senaryo başlığını girin...">
+            </div>
+    
+            <div class="form-group">
+                <label for="sceneInput" class="form-label">Sahne Tanımlaması:</label>
+                <textarea id="sceneInput" placeholder="Sahne tanımınızı buraya yazın..."></textarea>
+            </div>
+
+            <label for="scenarioInput" class="form-label">Senaryo Açıklaması:</label>
+            <textarea id="scenarioInput" placeholder="Senaryonuzu buraya yazın..."></textarea>
+        </div>
+
+
+        <div class="form-group">
+            <label for="characterSelect" class="form-label">Karakter Seçimi:</label>
+            <select id="characterSelect">
+                <option value="karakter1">Karakter 1</option>
+                <option value="karakter2">Karakter 2</option>
+                <option value="karakter3">Karakter 3</option>
+                <option value="karakter3">Karakter 4</option>
+                <option value="karakter3">Karakter 5</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dialogueInput" class="form-label">Diyalog:</label>
+            <textarea id="dialogueInput" placeholder="Diyaloğunuzu buraya yazın..."></textarea>
+        </div>
+
+        <button id="addDialogueButton">Diyalog Ekle</button>
+
+        <div class="preview-area" id="previewArea">
+            <!-- Diyalog Önizlemesi buraya gelecek -->
+        </div>
+    </div>
+   <div class="back-button">
+        <button class="butonback" onclick="goBack()"><i style="font-size: x-large;" class="fa-solid fa-angles-left"></i></button>
+    </div>
+    <!-- Geri Dön Butonu -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+          function goBack() {
+    window.history.back();
+}
+        document.getElementById('addDialogueButton').addEventListener('click', function() {
+            const character = document.getElementById('characterSelect').value;
+            const dialogue = document.getElementById('dialogueInput').value;
+            const previewArea = document.getElementById('previewArea');
+
+            const dialogueLine = character + ": " + dialogue + "\n";
+            previewArea.textContent += dialogueLine;
+
+            document.getElementById('dialogueInput').value = ''; // Girdi alanını temizle
+        });
+    </script>
+
+</body>
+</html>

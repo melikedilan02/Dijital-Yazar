@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.6.0",
+    "@google/generative-ai": "^0.16.0",
+    "axios": "^1.7.5",
+    "express": "^4.21.2",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.9.14"
+  },
+  "scripts": {
+    "start": "node src/app.js"
+  }
+}

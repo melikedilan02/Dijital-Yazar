@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Ana Sayfa</title>
+</head>
+<style>
+  body{ 
+    background: #F8EDE3; 
+    
+}
+.custom-button {
+    color: #5C4033; /* Buton yazı rengi */
+    border: 2px solid #5C4033; /* Buton kenarlık rengi ve kalınlığı */
+    border-radius: 50px; /* Yuvarlak kenarlar */
+    padding: 10px 20px; /* İç boşluklar */
+    text-decoration: none; /* Alt çizgiyi kaldırır */
+    font-weight: bold; /* Kalın yazı tipi */
+    display: inline-block; /* Buton gibi davranmasını sağlar */
+    transition: background-color 0.5s, color 0.5s; /* Geçiş süresi */
+    cursor: pointer; /* Fare ikonu değişir */
+}
+
+.custom-button:hover {
+    color: white; /* Üzerine gelindiğinde yazı rengi */
+    background-color: #5C4033; /* Üzerine gelindiğinde arka plan rengi */
+}
+.auth-buttons {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 10px; /* Butonlar arasındaki boşluk */
+}
+
+.auth-buttons a {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-buttons .login-btn {
+    background-color: #677D6A;
+}
+
+.auth-buttons .signup-btn {
+    background-color: #859bd9;
+}
+
+.auth-buttons a:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: darken(10%, background-color);
+}
+.navbar-brand {
+        font-family: 'Lora', serif;
+        font-size: 2.2rem;
+        color: #3C2A1A;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: capitalize;
+    }
+    .navbar img {
+            height: 50px; /* Logo boyutu */
+            width: auto; /* Orantılı genişlik */
+            margin-left: 10px; /* Logo ile yazı arasındaki boşluk */
+            border-radius: 5px; /* Hafif köşeler */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Hafif gölge efekti */
+        }
+.navbar-nav{
+    font-size: large;
+}
+</style> 
+<body >
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <!-- <a class="navbar-brand"  href="#">YazArt</a>     -->
+    <!--<button class="navbar toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-control="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span style="height: 1rem;" class="navbar-toggler-icon"></span> -->
+     
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+        <li class="nav-item-">
+            <a class="nav-link" href=""><b>Ana Sayfa</b><span class="sr-only"></span></a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="hizmetler">Hizmetler</a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="uyelik">Üyelik</a>
+                </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact">İletişim</a>
+                        </li>
+        </ul>
+        <div style="position: absolute; right: 0;" class="auth-buttons ml-auto">
+            <a href="login" class="login-btn">Giriş Yap</a> 
+            <a href="uyelik" class="signup-btn">Üye Ol</a>
+        </div>
+    </div>
+    </nav>
+    <div style="position: absolute; right: 0; ">
+        
+        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExbWRzZjYyOHlib2V2eGhwYzFteGxmejFneWZ5bTQ0enYwdXR3eTV2ZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/BLjAZe2qMKUnZNU7e8/giphy.webp" style="height: 3rem" alt="">
+  </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="flex flex-col gap-y-10 items-center text-center"><h1 class="text-4xl 2xl:text-[60px] font-semibold">Kaleme Al ve <span class="text-[#FF4713]">Tasarlamaya Başla</span></h1><h6 class="text-[#323E48] text-base xl:text-xl whitespace-pre-line">Metin düzenleme dünyasında yepyeni bir soluk getiriyor. İster bir ajans, ister bir yazar veya içerik üreticisi olun; yazılarınızı ve projelerinizi kolayca oluşturup düzenleyebilirsiniz. </h6><div class="flex justify-center gap-x-5">
+                        <a href="hizmetler" class="custom-button">
+                        Ücretsiz Tasarlamaya Başla</a> 
+                       </div></div>
+                       <div class="bg-[#C9D9F133] rounded-2xl basis-[50%] flex flex-col justify-center gap-y-5 px-5 h-min p-5 text-center xl:text-start hover:bg-[#C9D9F1] duration-500 xl:animate-fade-in-bottom"><div class="flex justify-center xl:justify-start">
+                           <img src="icons/anasayfaFoto.jpg"style="height: 30rem" alt="">
+                        </div>
+                    </div>
+            </div>
+            <!--İKİNCİ SATIR-->
+            <div style="display: flex; flex-direction: column; align-items: center;"class="içerik">
+                <h1 text-3xl 2xl:text-[40px] font-[700] text-center mb-20>Öne Çıkan Özellikler</h1>
+                <div class="features mt-1" style="display: flex; gap: 20rem;">
+                    <div class="feature-item" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="p-4 bg-[#FFDAD0] w-min rounded-2xl flex items-center justify-center group-hover:bg-[#f5cdc3] duration-500">
+                            <img src="icons/documentİcon.png" height="65rem" width="65rem" alt="">
+                        </div>
+                        <h6 style="font-size: larger;"><b>Şablon Kütüphanesi</b></h6>
+                        <p style="font-size: medium;"></p>
+                    </div>
+                    <div class="feature-item" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="p-4 bg-[#FFDAD0] w-min rounded-2xl flex items-center justify-center group-hover:bg-[#f5cdc3] duration-500">
+                            <img src="icons/aiIcon.png"  alt="">
+                        </div>
+                        <h6 style="font-size: larger;"><b>Yapay Zeka Destekli</b></h6>
+                        <p style="font-size: medium;"></p>
+                    </div>
+                </div><!--İLK İKİLİ-->
+                <div class="features mt-4" style="display: flex; gap: 20rem;">
+                    <div class="feature-item" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="p-4 bg-[#FFDAD0] w-min rounded-2xl flex items-center justify-center group-hover:bg-[#f5cdc3] duration-500">
+                            <img src="https://cdn-icons-png.freepik.com/256/5363/5363769.png" height="65rem" width="65rem" alt="">
+                        </div>
+                        <h6 style="font-size: larger;"><b>Özgün Efektler</b></h6>
+                        <p style="font-size: medium;"></p>
+                    </div>
+                    <div class="feature-item" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="p-4 bg-[#FFDAD0] w-min rounded-2xl flex items-center justify-center group-hover:bg-[#f5cdc3] duration-500">
+                            <img src="https://static-00.iconduck.com/assets.00/paragraph-text-icon-2048x2048-kownr0m0.png" height="65rem" width="65rem" alt="">
+                        </div>
+                        <h6 style="font-size: larger;"><b>Yazı Tipi Kütüphanesi</b></h6>
+                        <p style="font-size: medium;"></p>
+                    </div>
+                    <div class="feature-item" style="display: flex; flex-direction: column; align-items: center;">
+                        <div class="p-4 bg-[#FFDAD0] w-min rounded-2xl flex items-center justify-center group-hover:bg-[#f5cdc3] duration-500">
+                            <img src="https://cdn-icons-png.flaticon.com/512/3616/3616700.png" height="65rem" width="65rem" alt="">
+                        </div>
+                        <h6 style="font-size: larger;"><b>Takım İşbirliği</b></h6>
+                        <p style="font-size: medium;"></p>
+                    </div>
+                   
+                </div><!--ikinci üçlü-->
+                <div style="display: flex; flex-direction: column; align-items: center;"class="içerik">
+                    <h1 text-3xl 2xl:text-[40px] font-[700] text-center mb-20></h1>
+                    <div class="features mt-1" style="display: flex; gap: 20rem;">
+                        <div class="feature-item" style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="p-4 bg-[#FFDAD0] w-min rounded-2xl flex items-center justify-center group-hover:bg-[#f5cdc3] duration-500">
+                                <img src="icons/pencil.png" height="65rem" width="65rem" alt="">
+                            </div>
+                            <h6 style="font-size: larger;"><b>Esnek Düzenleme</b></h6>
+                            <p style="font-size: medium;"></p>
+                        </div>
+                        <div class="feature-item" style="display: flex; flex-direction: column; align-items: center;">
+                            <div class="p-4 bg-[#FFDAD0] w-min rounded-2xl flex items-center justify-center group-hover:bg-[#f5cdc3] duration-500">
+                                <img src="icons/pdf-icon.png" height="65rem" width="65rem"  alt="">
+                            </div>
+                            <h6 style="font-size: larger;"><b>İndirme Seçenekleri</b></h6>
+                            <p style="font-size: medium;"></p>
+                        </div>
+                    </div>
+            </div>
+           
+             </div>
+        </div>
+    </div> 
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İçerik Dönüştürücü ve JPG to PDF</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        background-image: url('https://www.bhmpics.com/downloads/converter-wallpaper/7.wallpapers-converter-ingkyl.jpg');
+        background-color: #F8F1E4;
+        font-family: 'Arial', sans-serif;
+        color: #333;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .container {
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+    }
+
+    .input-section, .options-section, .output-section {
+        margin-bottom: 20px;
+    }
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    select, button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    button {
+        background-color: #28a745;
+        color: white;
+        font-size: 16px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #00267e;
+        transform: scale(1.05);
+    }
+
+    .navbar img {
+        height: 50px;
+        width: auto;
+        margin-left: 10px;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav {
+        font-size: large;
+    }
+    .back-button {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background-color: #d8cab8;
+        color: black;
+        border-radius: 50%;
+        border: 2px solid transparent;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .back-button:hover {
+        background-color: #C4A484;
+        color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    .back-button img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.3s ease;
+    }
+    
+    .back-button:hover img {
+        transform: translateX(-5px);
+    }
+    .butonback {
+            width: 70px; /* Dairenin çapı */
+            height: 70px; /* Dairenin çapı */
+            border-radius: 100%; /* Tam yuvarlak yapmak için */
+            background-color: #d8cab8; /* Arka plan rengi */
+            color: black; /* Metin rengi */
+            border: none; /* Kenarlık kaldırıldı */
+            font-size: 16px; /* Yazı boyutu */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed; /* Sayfanın sağ alt köşesinde sabit kalması için */
+            bottom: 20px;
+            left: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Hover efekti için geçiş */
+        }
+        .butonback:hover {
+            background-color: #00267e; /* Hover rengi */
+            color: white;
+        }
+</style>
+<body>
+    <div id="loading-spinner"></div>
+    <nav style="background-color: #DFD3C3; gap:1.5rem;" class="navbar navbar-expand-lg navbar-light">
+        <img src="icons/abcdfg.PNG" alt="YazArt Logo">
+        <a class="navbar-brand"  href="#">YazArt</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item-">
+                <a class="nav-link" href="/">Ana Sayfa<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="hizmetler">Hizmetler</a>
+                    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="uyelik">Üyelik</a>
+                    </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contact">İletişim</a>
+                            </li>
+            </ul>
+            
+        </div>
+        
+    </nav>
+
+    <div class="container mt-5 d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="converter-container text-center">
+                    <h1>JPG to PDF Dönüştürücü</h1>
+                    <div class="input-section mb-3">
+                        <label for="imageFile">JPG Dosyasını Yükle:</label>
+                        <input type="file" id="imageFile" accept="image/jpeg" class="form-control">
+                    </div>
+                    <button id="convertImageButton" class="btn btn-primary">Dönüştür ve İndir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row"> 
+            <div class="col-12">
+                <h1>İçerik Dönüştürücü</h1>
+                <div class="input-section">
+                    <label for="inputText">Dönüştürülecek İçerik:</label>
+                    <textarea id="inputText" placeholder="Metin veya dosya içeriği girin..."></textarea>
+                </div>
+                <div class="options-section">
+                    <label for="outputFormat">Çıktı Formatı:</label>
+                    <select id="outputFormat">
+                        <option value="json">JSON</option>
+                        <option value="xml">XML</option>
+                        <option value="csv">CSV</option>
+                        <option value="text">Düz Metin</option>
+                    </select>
+                </div>
+                <button id="convertTextButton" class="btn btn-primary">Dönüştür</button>
+                <div class="output-section">
+                    <label for="outputText">Dönüştürülen İçerik:</label>
+                    <textarea id="outputText" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="back-button">
+        <button class="butonback" onclick="goBack()"><i style="font-size: x-large;" class="fa-solid fa-angles-left"></i></button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("convertTextButton").addEventListener("click", function() {
+            const inputText = document.getElementById("inputText").value;
+            const outputFormat = document.getElementById("outputFormat").value;
+            let outputText = "";
+
+            switch(outputFormat) {
+                case "json":
+                    outputText = JSON.stringify({ content: inputText });
+                    break;
+                case "xml":
+                    outputText = `<content>${inputText}</content>`;
+                    break;
+                case "csv":
+                    outputText = `"Content"\n"${inputText}"`;
+                    break;
+                case "text":
+                    outputText = inputText;
+                    break;
+            }
+
+            document.getElementById("outputText").value = outputText;
+        });
+
+        document.getElementById("convertImageButton").addEventListener("click", function() {
+            const fileInput = document.getElementById('imageFile');
+            const file = fileInput.files[0];
+
+            if (file && file.type === 'image/jpeg') {
+                const fileReader = new FileReader();
+                fileReader.onload = function() {
+                    const img = new Image();
+                    img.src = fileReader.result;
+
+                    img.onload = function() {
+                        const { jsPDF } = window.jspdf;
+                        const pdf = new jsPDF({
+                            orientation: img.width > img.height ? 'landscape' : 'portrait',
+                            unit: 'px',
+                            format: [img.width, img.height]
+                        });
+
+                        pdf.addImage(img, 'JPEG', 0, 0, img.width, img.height);
+                        pdf.save('converted.pdf');
+                    };
+                };
+                fileReader.readAsDataURL(file);
+            } else {
+                alert('Lütfen bir JPG dosyası seçin.');
+            }
+        });
+        
+        function goBack() {
+    window.history.back();
+}
+    </script>
+</body>
+</html>
